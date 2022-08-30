@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Person</title>
+</head>
+
+<body>
+	<p th:text="${person.getName()}">Person's name</p>
+	<p th:text="${person.getSurname()}">Person's surname</p>
+	<p th:if="${person.getPatronymic() != null}" th:text="${person.getPatronymic()}">Person's patronymic</p>
+	<p th:text="${person.getBirthdate()}">Person's birthdate</p>
+	<form th:if="${take} == true">
+		<hr />
+		<p>Books taken:</p>
+		<div th:each="book : ${books}">
+			<a th:text="${book.getTitle() + ', ' + book.getAuthor_name() + ' ' + book.getAuthor_surname() + ', ' + book.getYear_of_publishing()}"
+			th:style="${book.isExpired()} ? 'color:red':'color:black'">Books</a>
+		</div>
+	</form>
+	<form th:unless="${take} == true">
+		<hr />
+		<p>Person does not take any book.</p>
+	</form>
+	<br />
+	<hr />
+	<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPerson_id()})}">
+		<input type="submit" value="Edit" />
+	</form>
+	<br />
+	<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPerson_id()})}">
+		<input type="submit" value="Delete" />
+	</form>
+</body>
+
+</html>

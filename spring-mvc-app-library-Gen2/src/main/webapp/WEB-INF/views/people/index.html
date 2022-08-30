@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>People</title>
+</head>
+
+<body>
+	<div th:each="person : ${people}">
+		<a th:if="${person.getPatronymic() != null}" th:href="@{/people/{id}(id=${person.getPerson_id()})}"
+			th:text="${person.getSurname() + ' ' + person.getName() + ' ' + person.getPatronymic() + ', ' + person.getBirthdate()}">person</a>
+		<a th:unless="${person.getPatronymic() != null}" th:href="@{/people/{id}(id=${person.getPerson_id()})}"
+			th:text="${person.getSurname() + ' ' + person.getName() + ', ' + person.getBirthdate()}">person</a>
+	</div>
+	<br />
+	<hr />
+	<a href="/people/new">Create new person</a>
+</body>
+
+</html>
