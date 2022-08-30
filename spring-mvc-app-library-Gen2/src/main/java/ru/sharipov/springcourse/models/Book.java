@@ -34,23 +34,23 @@ public class Book {
 	@Size(min = 2, max = 30, message = "Name should be between 1 and 30 characters")
 	@Pattern(regexp = "[A-Z]\\w+", message = "The first character of name should be capital")
 	@Column(name = "author_name")
-	private String author_name;
+	private String authorName;
 
 	@NotEmpty(message = "Surname shouldn't be empty")
 	@Size(min = 2, max = 30, message = "Surname should be between 1 and 30 characters")
 	@Pattern(regexp = "[A-Z]\\w+", message = "The first character of surname should be capital")
 	@Column(name = "author_surname")
-	private String author_surname;
+	private String authorSurname;
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy")
 	@Column(name = "year_of_publishing")
-	private Date year_of_publishing;
+	private Date yearOfPublishing;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "book_id")
-	private int book_id;
+	private int bookId;
 
 	@ManyToOne
 	@JoinColumn(name = "person_id", referencedColumnName = "person_id")
@@ -68,9 +68,9 @@ public class Book {
 
 	public Book(String title, String author_name, String author_surname, Date year_of_publishing) {
 		this.title = title;
-		this.author_name = author_name;
-		this.author_surname = author_surname;
-		this.year_of_publishing = year_of_publishing;
+		this.authorName = author_name;
+		this.authorSurname = author_surname;
+		this.yearOfPublishing = year_of_publishing;
 	}
 
 	public String getTitle() {
@@ -81,36 +81,36 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getAuthor_name() {
-		return author_name;
+	public String getAuthorName() {
+		return authorName;
 	}
 
-	public void setAuthor_name(String author_name) {
-		this.author_name = author_name;
+	public void setAuthorName(String author_name) {
+		this.authorName = author_name;
 	}
 
-	public String getAuthor_surname() {
-		return author_surname;
+	public String getAuthorSurname() {
+		return authorSurname;
 	}
 
-	public void setAuthor_surname(String author_surname) {
-		this.author_surname = author_surname;
+	public void setAuthorSurname(String author_surname) {
+		this.authorSurname = author_surname;
 	}
 
-	public Date getYear_of_publishing() {
-		return year_of_publishing;
+	public Date getYearOfPublishing() {
+		return yearOfPublishing;
 	}
 
-	public void setYear_of_publishing(Date year_of_publishing) {
-		this.year_of_publishing = year_of_publishing;
+	public void setYearOfPublishing(Date year_of_publishing) {
+		this.yearOfPublishing = year_of_publishing;
 	}
 
-	public int getBook_id() {
-		return book_id;
+	public int getBookId() {
+		return bookId;
 	}
 
-	public void setBook_id(int id) {
-		this.book_id = id;
+	public void setBookId(int id) {
+		this.bookId = id;
 	}
 
 	public Person getOwner() {
@@ -139,13 +139,13 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author_name=" + author_name + ", author_surname=" + author_surname
-				+ ", year_of_publishing=" + year_of_publishing + ", book_id=" + book_id + "]";
+		return "Book [title=" + title + ", author_name=" + authorName + ", author_surname=" + authorSurname
+				+ ", year_of_publishing=" + yearOfPublishing + ", book_id=" + bookId + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(author_name, author_surname, title, year_of_publishing);
+		return Objects.hash(authorName, authorSurname, title, yearOfPublishing);
 	}
 
 	@Override
@@ -160,8 +160,8 @@ public class Book {
 			return false;
 		}
 		Book other = (Book) obj;
-		return Objects.equals(author_name, other.author_name) && Objects.equals(author_surname, other.author_surname)
-				&& Objects.equals(title, other.title) && Objects.equals(year_of_publishing, other.year_of_publishing);
+		return Objects.equals(authorName, other.authorName) && Objects.equals(authorSurname, other.authorSurname)
+				&& Objects.equals(title, other.title) && Objects.equals(yearOfPublishing, other.yearOfPublishing);
 	}
 
 }

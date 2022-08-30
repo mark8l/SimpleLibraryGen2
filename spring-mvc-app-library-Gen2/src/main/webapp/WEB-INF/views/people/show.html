@@ -15,7 +15,7 @@
 		<hr />
 		<p>Books taken:</p>
 		<div th:each="book : ${books}">
-			<a th:text="${book.getTitle() + ', ' + book.getAuthor_name() + ' ' + book.getAuthor_surname() + ', ' + book.getYear_of_publishing()}"
+			<a th:text="${book.getTitle() + ', ' + book.getAuthorName() + ' ' + book.getAuthorSurname() + ', ' + book.getYearOfPublishing()}"
 			th:style="${book.isExpired()} ? 'color:red':'color:black'">Books</a>
 		</div>
 	</form>

@@ -12,17 +12,17 @@
 		<input type="text" th:field="*{title}" id="title"/>
 		<div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error's name</div>
 		<br/>
-		<label for="author_name">Enter author's name: </label>
-		<input type="text" th:field="*{author_name}" id="author_name"/>
-		<div style="color: red" th:if="${#fields.hasErrors('author_name')}" th:errors="*{author_name}">Error's name</div>
+		<label for="authorName">Enter author's name: </label>
+		<input type="text" th:field="*{authorName}" id="authorName"/>
+		<div style="color: red" th:if="${#fields.hasErrors('authorName')}" th:errors="*{authorName}">Error's name</div>
 		<br/>
-		<label for="author_surname">Enter author's surname: </label>
-		<input type="text" th:field="*{author_surname}" id="author_surname"/>
-		<div style="color: red" th:if="${#fields.hasErrors('author_surname')}" th:errors="*{author_surname}">Error's name</div>
+		<label for="authorSurname">Enter author's surname: </label>
+		<input type="text" th:field="*{authorSurname}" id="authorSurname"/>
+		<div style="color: red" th:if="${#fields.hasErrors('authorSurname')}" th:errors="*{authorSurname}">Error's name</div>
 		<br/>
-		<label for="year_of_publishing">Enter year of publishing(yyyy): </label>
-		<input type="text" th:field="*{year_of_publishing}" id="year_of_publishing"/>
-		<div style="color: red" th:if="${#fields.hasErrors('year_of_publishing')}" th:errors="*{year_of_publishing}">Error's name</div>
+		<label for="yearOfPublishing">Enter year of publishing(yyyy): </label>
+		<input type="text" th:field="*{yearOfPublishing}" id="yearOfPublishing"/>
+		<div style="color: red" th:if="${#fields.hasErrors('yearOfPublishing')}" th:errors="*{yearOfPublishing}">Error's name</div>
 		<br/>
 		<input type="submit" value="Create"/>
 	</form>

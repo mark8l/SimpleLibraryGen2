@@ -27,7 +27,7 @@ public class LibraryService {
 
 	public List<Book> findAll(boolean sortByYear) {
 		if (sortByYear) {
-			return libraryRepository.findAll(Sort.by("year_of_publishing"));
+			return libraryRepository.findAll(Sort.by("yearOfPublishing"));
 		} else {
 			return libraryRepository.findAll();
 		}
@@ -35,7 +35,7 @@ public class LibraryService {
 
 	public List<Book> findWithPagination(Integer page, Integer booksPerPage, boolean sortByYear) {
 		if (sortByYear) {
-			return libraryRepository.findAll(PageRequest.of(page, booksPerPage, Sort.by("year_of_publishing")))
+			return libraryRepository.findAll(PageRequest.of(page, booksPerPage, Sort.by("yearOfPublishing")))
 					.getContent();
 		} else {
 			return libraryRepository.findAll(PageRequest.of(page, booksPerPage)).getContent();
@@ -78,7 +78,7 @@ public class LibraryService {
 	@Transactional
 	public void update(int id, Book updatedBook) {
 		Book bookToBeUpdated = libraryRepository.findById(id).get();
-		updatedBook.setBook_id(id);
+		updatedBook.setBookId(id);
 		updatedBook.setOwner(bookToBeUpdated.getOwner());
 		libraryRepository.save(updatedBook);
 	}

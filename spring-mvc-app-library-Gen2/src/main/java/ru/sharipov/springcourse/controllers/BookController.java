@@ -44,7 +44,7 @@ public class BookController {
 		if (page == null || booksPerPage == null) {
 			model.addAttribute("books", libraryService.findAll(sortByYear));
 		} else {
-			model.addAttribute(libraryService.findWithPagination(page, booksPerPage, sortByYear));
+			model.addAttribute("books", libraryService.findWithPagination(page, booksPerPage, sortByYear));
 		}
 
 		return "book/index";

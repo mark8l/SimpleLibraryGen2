@@ -19,7 +19,7 @@
 			<span>There is no books.</span>
 		</div>
 	<div th:each="book:${books}">
-		<p th:text="${book.getTitle() + ', ' + book.getAuthor_surname() + ' ' + book.getAuthor_name() + ', ' + #dates.year(book.getYear_of_publishing())}">book</p>
+		<p th:text="${book.getTitle() + ', ' + book.getAuthorSurname() + ' ' + book.getAuthorName() + ', ' + #dates.year(book.getYearOfPublishing())}">book</p>
 		<div th:if="${book.getOwner()!= null}">
 			<span>The book taken by:</span>
 			<span th:text="${book.getOwner().getSurname() + ' ' + book.getOwner().getName()}">Person's name</span>
